@@ -1,0 +1,19 @@
+{
+  "name": "bun-vite-single-file",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vite-plugin-singlefile": "^2.0.1"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:vite": "vite",
+    "dev:server": "bun run --hot server/index.ts --dev",
+    "build": "bun run build:vite && bun run build:server",
+    "build:vite": "vite build",
+    "build:server": "bun build --compile --minify --sourcemap server/index.ts --outfile bin/app"
+  },
+  "type": "module"
+}
